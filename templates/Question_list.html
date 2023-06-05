@@ -1,0 +1,27 @@
+{% extends 'dummy.html' %}
+
+
+{% block titls %}
+    <title>Dummy Page</title>
+{% endblock %}
+ 
+
+
+    {% block body_block %}
+
+    <center>
+        <br><br>
+        <h1 class="bg-warning">Questions are</h1>
+        {% for i in que %}
+        <a href="{{i.pk}}"><h3 class="nav-link">{{i.ques}}</h3></a>
+        {% endfor %}
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'insert_answer' %}" class="btn btn-danger">Submit answer</a>
+        {% else %}
+            <a href="{% url 'user_login' %}" class="btn btn-danger">login To answer</a>
+        {% endif %}
+    </center>
+
+    {% endblock %}
+

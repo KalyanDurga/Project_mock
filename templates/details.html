@@ -1,0 +1,32 @@
+{% extends 'dummy.html' %}
+
+
+{% block titls %}
+    <title>Dummy Page</title>
+{% endblock %}
+ 
+
+
+{% block body_block %}
+
+    <center>
+        <h1>Detail of answers</h1>
+        <h4>{{qs.ques}}</h4>
+
+        {% for i in qs.questions.all %}
+            <h6></h6>
+            <h6 style="color: brown;">Answered by<h2 >{{i.username}}</h2> </h6>
+            <h6 style="color: rgb(25, 200, 215);">{{i.ans}}</h6>
+
+        {% endfor %}
+        <br><br>
+        
+        {% if user.is_authenticated %}
+            <a href="{% url 'insert_answer' %}" class="btn btn-danger"> Answer The Question</a>
+            <a href="{% url 'list_ques' %}" class="btn btn-danger">Back to Question</a>
+        {% else %}
+            <a href="{% url 'list_ques' %}" class="btn btn-danger">Back to Question</a>
+        {% endif %}
+    </center>
+
+{% endblock %}

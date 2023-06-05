@@ -1,0 +1,20 @@
+{% extends 'dummy.html' %}
+
+
+{% block titls %}
+    <title>Dummy Page</title>
+{% endblock %}
+ 
+
+
+    {% block body_block %}
+
+    <center>
+        {% if user.is_authenticated %}
+            <h1>Welcom To homme page <h1 class="bg-warning">{{na|upper}}</h1></h1>
+        {% else %}
+            <h1>Welcom To homme page</h1>
+        {% endif %}
+    </center>
+
+    {% endblock %}
